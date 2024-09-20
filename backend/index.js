@@ -1,31 +1,31 @@
 require('dotenv').config();
-const express = require("express")
-const mongoose = require("mongoose")
-const cors = require("cors")
-const cookieParser = require('cookie-parser')
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const cookieParser = require('cookie-parser');
 
-const PORT = process.env.PORT || 9090
-const app = express()
+const PORT = process.env.PORT || 9090;
+const app = express();
 
 // Middlewares
-app.use(express.json())
-app.use(cors({credentials: true, origin: ['http://localhost:3000','https://interest-book-mern-jk53p8we1-diego-acajabons-projects.vercel.app', 'https://interest-book-mern.vercel.app']}));
-// app.use(cors({credentials: true, origin: ['https://interest-book-mern-jk53p8we1-diego-acajabons-projects.vercel.app', 'https://interest-book-mern.vercel.app']}));
-app.use(cookieParser())
+app.use(express.json());
+app.use(cors({ credentials: true, origin: '*' }));
+app.use(cookieParser());
 
 mongoose.connect(process.env.MONGODB_SERVER)
-// mongoose.connect('mongodb://localhost:27017/interest-book')
-
-  .catch((error) => {
+  .catch((error) =>
+  {
     console.error("DB connection error:", error);
   });
 
-app.listen(PORT, () => {
-  console.log("\nServer is Running...")
+app.listen(PORT, () =>
+{
+  console.log("\nServer is Running...");
 });
 
-app.get('/', (req, res) => {
-  res.send("Server Status: Running...")
+app.get('/', (req, res) =>
+{
+  res.send("Server Status: Running...");
 });
 
 
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 
 
 //for handling Users
-app.use('/api/user', require('./routes/user'))
+app.use('/api/user', require('./routes/user'));
 
 //for handling Customer
-app.use('/api/customer', require('./routes/customer'))
+app.use('/api/customer', require('./routes/customer'));
