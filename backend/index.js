@@ -10,7 +10,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(cors({
-  credentials: true, origin: ['http://localhost:3000', 'https://interest-book-mern.vercel.app', 'https://interest-book-mern-git-main-diego-acajabons-projects.vercel.app', 'https://interest-book-mern-diego-acajabons-projects.vercel.app/']
+  credentials: true, origin: ['http://localhost:3000', 'https://qa-proyecto-frontend.vercel.app', 'https://qa-proyecto-frontend-diego-acajabons-projects.vercel.app', 'https://qa-proyecto-frontend-git-main-diego-acajabons-projects.vercel.app']
 }));
 app.use(cookieParser());
 
