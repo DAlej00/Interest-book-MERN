@@ -1,1 +1,15 @@
-sonar.projectKey=DAlej00_Interest-book-MERN_604321e6-13bf-49d6-9678-1af9b1da391f
+node {
+  stage('Clean workspace') {
+    deleteDir()
+    sh 'ls -lah'
+  }
+  stage('SCM') {
+    checkout scm
+  }
+  stage('SonarQube Analysis') {
+    def scannerHome = tool 'SonarScanner';
+    withSonarQubeEnv('Sonar') {
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
+}
