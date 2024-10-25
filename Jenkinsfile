@@ -1,4 +1,8 @@
 node {
+  stage('Clean workspace') {
+    deleteDir()
+    sh 'ls -lah'
+  }
   stage('SCM') {
     checkout scm
   }
