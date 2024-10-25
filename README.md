@@ -1,4 +1,4 @@
-# Interest Book 
+# Interest Book  
 
 **Interest Calculator Book** is a MERN stack web application designed to help users keep track of the interest amounts given to different people. The platform also allows users to add information about the loans they have taken. The project is deployed using Vercel.
 
